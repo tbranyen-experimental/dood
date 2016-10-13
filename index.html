@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>dood</title>
+  </head>
+
+  <body>
+    <main></main>
+
+    <script src="node_modules/diffhtml/dist/diffhtml.js"></script>
+    <script src="node_modules/react-like/dist/react.js"></script>
+    <script src="my-component.js"></script>
+
+    <script>
+      const mount = document.querySelector('main');
+
+      window.variable = 'Hello world';
+
+      setInterval(() => diff.innerHTML(mount, diff.html`
+        <${MyComponent} label=${window.variable} />
+      `), 1000);
+      //diff.innerHTML(mount, diff.html`
+      //  <${MyComponent} label=${window.variable} />
+      //`);
+    </script>
+  </body>
+</html>
